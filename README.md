@@ -67,9 +67,6 @@
       }
    },
    "is_domain_connection":false,
-   "enabled_clients":[],
-   "realms":[
-      "sms"
-   ]
+   "enabled_clients":[]
 }
 ```
