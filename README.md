@@ -38,7 +38,11 @@
 
 <img src="https://user-images.githubusercontent.com/43750093/210164984-32489fbb-517a-49c1-80ba-05369a98a96b.png" style="display:block; float:none; margin-left:auto; margin-right:auto;"><br>
 
-10. Refer to [this documentation by Auth0](https://auth0.com/docs/authenticate/passwordless/authentication-methods/use-sms-gateway-passwordless#authenticated-requests) and update your sms connection
+10. In IAM roles, find the role that is linked to the lambda function you just created and find the SNS Publish Policy in the Permission policies. Edit it to make it look like in the image ( ```"Resource": "*"``` )
+
+<img src="https://user-images.githubusercontent.com/43750093/210195604-b3f577fe-0700-4b08-9318-3a6c208104ea.png" style="display:block; float:none; margin-left:auto; margin-right:auto;"><br>
+
+11. Refer to [this documentation by Auth0](https://auth0.com/docs/authenticate/passwordless/authentication-methods/use-sms-gateway-passwordless#authenticated-requests) and update your sms connection
 
 ```json
 {
