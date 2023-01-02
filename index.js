@@ -25,21 +25,24 @@ exports.handler = async (event, context) => {
     }
 
     try {
-        const { recepient, body, sender } = JSON.parse(event.body);
-        await sns.publish({
+        const { recipient, body, sender } = JSON.parse(event.body);
+        const params = {
             Message: `${body}`,
-            PhoneNumber: `${recepient}`
-        });
+            PhoneNumber: `${recipient}`
+        }
+        const result = await sns.publish(params).promise();
+        const final_response = {
+            statusCode:200,
+            body:'Success'
+        };
+        return final_response;
         
-    } catch (err) {
-        statusCode = '400';
-        body = err.message;
+    } catch (error) {
+        body = error.message;
+        const final_response = {
+            statusCode:400,
+            body
+        };
+        return final_response;
     } 
-
-    return {
-        statusCode,
-        event,
-        body,
-        headers,
-    };
 };
